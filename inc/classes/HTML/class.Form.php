@@ -39,30 +39,48 @@ class Form
 							felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
 							justo sit amet risus.</p>
 						<form class="form-horizontal">
+<?php
+	$tmp = new User();
+	$emailE = $tmp->isEmailAlreadyInUse('test@test.de');
+	
+	if ($emailE) {
+		echo "JA!";
+	} else {
+		echo "NEIN!!";
+	}
+	
+	$userNew = $tmp->createUser("test@test.de","test");
+
+	if ($userNew) {
+		echo "ANGELEGT!";
+	} else {
+		echo "NICHT!!";
+	}
+?>
 							<div class="control-group">
 								<label class="control-label" for="inputEmail">E-Mail</label>
 								<div class="controls">
 									<div class="input-prepend">
 										<span class="add-on"><i class="icon-envelope"></i> </span> 
-										<input type="email" id="inputEmail" placeholder="E-Mail-Adresse" required />
+										<input type="email" id="inputRegisterEmail" name="inputRegisterEmail" placeholder="E-Mail-Adresse" required autofocus />
 									</div>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="inputPassword">Passwort</label>
+								<label class="control-label" for="inputRegisterPassword">Passwort</label>
 								<div class="controls">
 									<div class="input-prepend">
 										<span class="add-on"><i class="icon-lock"></i> </span> 
-										<input type="password" id="inputPassword" placeholder="Passwort" required />
+										<input type="password" id="inputRegisterPassword" name="inputRegisterPassword" placeholder="Passwort" required />
 									</div>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="inputPasswordRepeat">Passwort wiederholen</label>
+								<label class="control-label" for="inputRegisterPasswordRepeat">Passwort wiederholen</label>
 								<div class="controls">
 									<div class="input-prepend">
 										<span class="add-on"><i class="icon-lock"></i> </span> 
-										<input type="password" id="inputPasswordRepeat" placeholder="Passwort" required />
+										<input type="password" id="inputRegisterPasswordRepeat" name="inputRegisterPasswordRepeat" placeholder="Passwort" required />
 									</div>
 								</div>
 							</div>

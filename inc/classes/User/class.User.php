@@ -32,19 +32,15 @@ class User
 					`auth_key`, 
 					`create_date`
 				) VALUES (
-					\'". $this->DB->escapeString($email) ."\',
-					\'". $this->DB->escapeString($password) ."\',
-					\'". $this->DB->escapeString($uniqId) ."\',
+					'". $this->DB->escapeString($email) ."',
+					'". $this->DB->escapeString($hash) ."',
+					'". $this->DB->escapeString($uniqId) ."',
 					NOW()
 				);";
-		
+
 		$result = $this->DB->query($sql);
-		
-		if (count($result) > 0) {
-			return true;
-		} else {
-			return false;
-		}
+
+		return $result;
 	}
 	
 	/**
@@ -56,10 +52,26 @@ class User
 	 */
 	public function activateUser($email, $key) {
 		$sql = "UPDATE `".DB_NAME."`.`".DB_PREFIX."customer` 
-				SET `active` = \'1\' 
-				WHERE `customer`.`email` = \'". $this->DB->escapeString($email) ."\'
-				AND `customer`.`auth_key` = \'". $this->DB->escapeString($key) ."\';";
+				SET `active` = '1' 
+				WHERE `customer`.`email` = '". $this->DB->escapeString($email) ."'
+				AND `customer`.`auth_key` = '". $this->DB->escapeString($key) ."';";
 	
+		$result = $this->DB->query($sql);
+
+		return $result;
+	}
+
+	/**
+	 * Ueberprueft, ob eine uebergebene E-Mail-Adresse bereits in Benutzung ist.
+	 * 
+	 * @param  String $email E-Mail-Adresse
+	 * @return boolean
+	 */
+	public function isEmailAlreadyInUse($email) {
+		$sql = "SELECT * 
+				FROM `".DB_NAME."`.`".DB_PREFIX."customer` 
+				WHERE `customer`.`email` = '". $this->DB->escapeString($email) ."';";
+
 		$result = $this->DB->query($sql);
 	
 		if (count($result) > 0)
@@ -67,8 +79,6 @@ class User
 		else
 			return false;
 	}
-	
-	
 	
 	
 	

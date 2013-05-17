@@ -10,7 +10,7 @@ define('DEBUG',true);
 define('DB_SERVER',"localhost");
 define('DB_PORT',"3306");
 define('DB_NAME',"d00f7e3f");
-define('DB_PREFIX',"chilaba_");
+define('DB_PREFIX',"");
 
 //Datenbankbenutzer
 define('DB_USER',"d00f7e3f");
