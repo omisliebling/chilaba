@@ -1,0 +1,34 @@
+<?php
+
+define("MIN_CHARS_NAME", 2);
+define("MAX_CHARS_NAME", 50);
+
+define("MIN_CHARS_USERNAME", 2);
+define("MAX_CHARS_USERNAME", 32);
+
+define("MIN_CHARS_FIRST_NAME", 2);
+define("MAX_CHARS_FIRST_NAME", 32);
+define("MIN_CHARS_LAST_NAME", 2);
+define("MAX_CHARS_LAST_NAME", 32);
+define("MAX_CHARS_EMAIL", 150);
+define("MIN_CHARS_FACEBOOK", 5);
+define("MAX_CHARS_FACEBOOK", 50);
+define("MIN_CHARS_TWITTER", 1);
+define("MAX_CHARS_TWITTER", 20);
+
+define("MIN_CHARS_SUBJECT", 3);
+define("MAX_CHARS_SUBJECT", 100);
+
+define("MIN_CHARS_MESSAGE", 10);
+define("MAX_CHARS_MESSAGE", 1000);
+
+define("MIN_CHARS_PASSWORD", 6);
+define("MAX_CHARS_PASSWORD", 32);
+
+define("MIN_CHARS_POINAME", 3);
+define("MAX_CHARS_POINAME", 255);
+define("MAX_CHARS_POI_STREET", 255);
+define("MAX_CHARS_POI_CITY", 255);
+define("MAX_CHARS_POI_ZIP", 5);
+
+?>
